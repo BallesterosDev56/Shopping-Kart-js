@@ -1,0 +1,38 @@
+html, logo {
+    margin: 0px;
+    font-family: Repo;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.title {
+    margin-left: 5rem;
+    height: 50px;
+}
+.title h1{
+    font-weight: bold;
+    margin: 0px;
+}
+
+.logo {
+    margin-right: 5rem;
+    height: 50px;
+    display: flex;
+}
+.logo img {
+    width: 50px;
+}
+
+.quantity {
+    padding: 0 8px 0 8px;
+    background-color: red;
+    margin-bottom: 30px;
+    margin-left: -10px;
+    border-radius: 50%;
+    color: white;
+}
