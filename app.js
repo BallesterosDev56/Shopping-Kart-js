@@ -71,7 +71,10 @@ initApp();
 
 function addToCart(key) {
     if (listCards[key] == null) {
-        listCards[key] = products[key];
+
+        // copy product form list to list card
+        listCards[key] = JSON.parse(JSON.stringify(products[key]));
+        
         listCards[key].quantity = 1;
     }
     reloadCard();
@@ -91,7 +94,7 @@ function reloadCard() {
             newLi.innerHTML = `
                 <img src="assets/images/${element.image}"></img>
                 <div>${element.name}</div>
-                <div>${element.price.toLocaleString()}</div>
+                <div>${(products[key].price * element.quantity).toLocaleString()}</div>
                 <div>
                     <button onclick="changeQuantity(${key}, ${element.quantity - 1})">-</button>
                     <div class="count">${element.quantity}</div>
@@ -100,8 +103,8 @@ function reloadCard() {
             `
             listCard.appendChild(newLi);
         }
-        total.textContent = amount.toLocaleString();
-        quantityBody.textContent = sum;
+        total.textContent = sum.toLocaleString();
+        quantityBody.textContent = amount;
     });
 }
 
@@ -110,9 +113,7 @@ function changeQuantity(key, quantity) {
         delete listCards[key];
     } else {
         listCards[key].quantity = quantity;
-        listCards[key].price = quantity * products[key].price;
-        console.log(listCards[key].price);
-        
+        listCards[key].price = listCards[key].quantity * products[key].price;
     }
     reloadCard();
 }
