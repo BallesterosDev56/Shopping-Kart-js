@@ -111,6 +111,7 @@ function reloadCard() {
 function changeQuantity(key, quantity) {
     if(quantity == 0) {
         delete listCards[key];
+        total.textContent = '0';
     } else {
         listCards[key].quantity = quantity;
         listCards[key].price = listCards[key].quantity * products[key].price;
