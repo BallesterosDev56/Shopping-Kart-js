@@ -213,3 +213,53 @@ header {
 .list-card .count{
     margin: 0 10px;
 }
+
+
+    /* Mobile Styles */
+    @media screen and (max-width: 480px) {
+        header {
+            flex-direction: column;
+            align-items: center;
+            padding-top: 1rem;
+            margin-bottom: 5vh;
+        }
+
+        .title {
+            margin: 0;
+            text-align: center;
+        }
+
+        .logo {
+            margin: 1rem 0;
+        }
+
+        .list {
+            grid-template-columns: 1fr;
+            row-gap: 3vh;
+        }
+
+        .list .item {
+            width: 80vw;
+            margin-left: 0;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .active .card {
+            left: 0;
+        }
+
+        .active .container {
+            transform: translateX(0);
+        }
+
+        .checkout {
+            grid-template-columns: 1fr;
+        }
+
+        .checkout div {
+            height: 50px;
+        }
+    }
